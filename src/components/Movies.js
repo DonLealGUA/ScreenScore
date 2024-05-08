@@ -1,7 +1,7 @@
-import React from "react";
-import Movie from '/Movie';
+import React, { useState } from 'react';
+import Movie from './Movie';
 
-const Movie = ({ movies,onDeleteMovie}) => {
+const Movies = ({ movies,onDeleteMovie}) => {
     return(
         <ul>
             {movies.map((movie) => (
@@ -10,3 +10,5 @@ const Movie = ({ movies,onDeleteMovie}) => {
         </ul>
     );
 }
+
+export default Movies;
