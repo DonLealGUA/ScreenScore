@@ -9,10 +9,10 @@ const Movie = ({ movie, onDeleteMovie }) => {
         <span>{title}</span>
         <div>
             {[...Array(parseInt(rating))].map((_, index) => (
-                <img key={index} src="../media/star.png" alt="Star" className="star-icon" />
+                <img key={index} src="/media/star.png" alt="Star" className="star-icon" />
             ))}
             <img
-                src="../media/delete.png"
+                src="/media/delete.png"
                 alt="Delete movie"
                 className="delete-movie-icon"
                 onClick={() => onDeleteMovie(movie)}
