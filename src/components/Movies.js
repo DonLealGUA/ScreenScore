@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Movie from './Movie';
+import { ListGroup } from 'react-bootstrap';
 
 const Movies = ({ movies,onDeleteMovie}) => {
     return(
-        <ul>
-            {movies.map((movie) => (
-             <Movie key={movie.id} movie={movie} onDeleteMovie={onDeleteMovie} />
-            ))}    
-        </ul>
+        <ListGroup>
+      {movies.map((movie) => (
+        <Movie key={movie.id} movie={movie} onDeleteMovie={onDeleteMovie} />
+      ))}
+    </ListGroup>
     );
 }
 

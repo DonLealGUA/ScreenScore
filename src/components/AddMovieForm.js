@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form, FormGroup, FormLabel, FormControl, Button } from 'react-bootstrap';
 
 const AddMovieForm = ({ onAddMovie}) => {
 
@@ -11,7 +12,7 @@ const AddMovieForm = ({ onAddMovie}) => {
             if (rating !== '' && rating !== '0') {
                 onAddMovie({title,rating: parseInt(rating)})
                 setTitle('');
-                setRating('');
+                setRating('0');
             }else{
                 alert("Please enter a Movie rating");
                 return;
@@ -23,23 +24,27 @@ const AddMovieForm = ({ onAddMovie}) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <fieldset>
-                <legend>Lägg till en film</legend>
-                <label htmlFor="title-field">Titel:</label>
-                <input type="text" id="title-field" value={title} onChange={(e) => setTitle(e.target.value)}/>
-                <label htmlFor="rating-field">Betyg:</label>
-                <select type="text" id="rating-field"value={rating} onChange={(e) => setRating(e.target.value)}>
-                    <option value="0">Välj betyg här...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    </select>
-                <input type="submit" class="btn btn-success mt-3" value="Spara film"/>
-            </fieldset>
-        </form>
+        <Form onSubmit={handleSubmit}>
+        <fieldset>
+          <legend>Lägg till en film</legend>
+          <FormGroup>
+            <FormLabel htmlFor="title-field">Titel:</FormLabel>
+            <FormControl type="text" id="title-field" placeholder="Title här..." value={title} onChange={(e) => setTitle(e.target.value)} />
+          </FormGroup>
+          <FormGroup>
+            <FormLabel htmlFor="rating-field">Betyg:</FormLabel>
+            <FormControl as="select" id="rating-field" value={rating} onChange={(e) => setRating(e.target.value)}>
+              <option value="0">Välj betyg här...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </FormControl>
+          </FormGroup>
+          <Button type="submit" variant="success" className="mt-3">Spara film</Button>
+        </fieldset>
+      </Form>
     );
 };
 

@@ -1,15 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { ListGroup } from 'react-bootstrap';
 
 const Movie = ({ movie, onDeleteMovie }) => {
-    const [title, rating] = movie;
+    const { title, rating } = movie;
 
     return (
-        <li data-grade={`${rating}`} data-title={`${title}`}>
-            {title}
-            <img src="media/delete.png" alt="Delete movie" className="delete-movie-icon" />
-            {'<img src="media/star.png" alt="Star">'.repeat(parseInt(rating))}
-            <button onClick={() => onDeleteMovie(movie)}>Delete</button>
-        </li>
+        <ListGroup.Item className="d-flex justify-content-between align-items-center">
+        <span>{title}</span>
+        <div>
+            {[...Array(parseInt(rating))].map((_, index) => (
+                <img key={index} src="../media/star.png" alt="Star" className="star-icon" />
+            ))}
+            <img
+                src="../media/delete.png"
+                alt="Delete movie"
+                className="delete-movie-icon"
+                onClick={() => onDeleteMovie(movie)}
+            />
+        </div>
+    </ListGroup.Item>
     );
 };
 

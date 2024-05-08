@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import AddMovieForm from './components/AddMovieForm';
 import Movies from './components/Movies';
 import OrderByAlphaButton from './components/OrderByAlphaButton';
@@ -27,30 +28,37 @@ const orderByGrade = () => {
 
 return(
 <Container>
-      <Row>
-        <Col>
-          <h1>Min filmlista</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <AddMovieForm onAddMovie={addMovie} />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Movies movies={movies} onDeleteMovie={deleteMovie} />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <OrderByAlphaButton onOrderByAlpha={orderByAlpha} />
-        </Col>
-        <Col>
-          <OrderByGradeButton onOrderByGrade={orderByGrade} />
-        </Col>
-      </Row>
-    </Container>
+  <Row>
+    <Col>
+      <h1>ScreenScore</h1>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <AddMovieForm onAddMovie={addMovie} />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <h2 style={{ marginTop: '20px' }}>Inlagda Filmer</h2>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <Movies movies={movies} onDeleteMovie={deleteMovie} />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <div className="d-flex justify-content-between">
+        <OrderByAlphaButton onOrderByAlpha={orderByAlpha} />
+        <div style={{ width: '20px' }}></div> {/* Spacer */}
+        <OrderByGradeButton onOrderByGrade={orderByGrade} />
+      </div>
+    </Col>
+  </Row>
+</Container>
+
 );
 
 
