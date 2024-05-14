@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import { Form, FormGroup, FormLabel, FormControl, Button } from 'react-bootstrap';
 
 const AddMovieForm = ({ onAddMovie}) => {
-
+// State variables for managing input values
     const [title, setTitle] = useState('');
     const [rating, setRating] = useState('');
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        if (title !== ''){
-            if (rating !== '' && rating !== '0') {
-                onAddMovie({title,rating: parseInt(rating)})
-                setTitle('');
+        if (title !== ''){ //Checks if the title is not empty
+            if (rating !== '' && rating !== '0') {//Checks if the rating is not set to defualt
+                onAddMovie({title,rating: parseInt(rating)}) //adds the movie
+                setTitle(''); //Sets back to defualt for new items to be added
                 setRating('0');
             }else{
                 alert("Please enter a Movie rating");
@@ -29,7 +29,7 @@ const AddMovieForm = ({ onAddMovie}) => {
           <legend>Lägg till en film</legend>
           <FormGroup>
             <FormLabel htmlFor="title-field">Titel:</FormLabel>
-            <FormControl type="text" id="title-field" placeholder="Title här..." value={title} onChange={(e) => setTitle(e.target.value)} />
+            <FormControl type="text" id="title-field" placeholder="Title här..." value={title} onChange={(e) => setTitle(e.target.value)} /> 
           </FormGroup>
           <FormGroup>
             <FormLabel htmlFor="rating-field">Betyg:</FormLabel>
