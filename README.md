@@ -1,5 +1,4 @@
-# Creating the README content as a string
-readme_content = """
+
 # ScreenScore
 
 **ScreenScore** is a movie management application built with React that allows users to add, delete, and organize movies based on their titles and ratings. The application features a user-friendly interface that enhances the experience of managing a personal movie collection.
