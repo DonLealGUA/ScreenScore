@@ -1,0 +1,29 @@
+/* App.css */
+
+body {
+    background-color: #282c34; 
+    color: #ffffff;
+    font-family: 'Arial', sans-serif; 
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.app-title {
+    margin-bottom: 20px;
+}
+
+.app-subtitle {
+    margin-top: 20px; 
+    font-weight: bold;
+}
+
+
+.d-flex {
+    justify-content: center; 
+}
